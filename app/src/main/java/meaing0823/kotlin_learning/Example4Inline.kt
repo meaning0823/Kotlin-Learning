@@ -1,23 +1,19 @@
 package meaing0823.kotlin_learning
 
 object Example4Inline {
-    inline fun returnRules(arg1: Int, t: String): Boolean {
+    inline fun returnRules(arg1: Char, t: String): Boolean {
         return when (arg1) {
-            0 -> t.indexOf('o') != -1
+            'o' -> t.indexOf('o') != -1
             else -> false
         }
     }
 
-    inline fun ArrayList<String>.returnFilter(arg1: Int): List<String> {
-        return this.filter {
-            returnRules(arg1, it)
-        }
+    inline fun ArrayList<String>.returnFilter(arg1: Char) = this.filter {
+        returnRules(arg1, it)
     }
 
-    inline fun ArrayList<String>.returnAny(arg1: Int): Boolean {
-        return this.any {
-            returnRules(arg1, it)
-        }
+    inline fun ArrayList<String>.returnAny(arg1: Char) = this.any {
+        returnRules(arg1, it)
     }
 
     fun function01() {
@@ -26,7 +22,7 @@ object Example4Inline {
         list1.add("two")
         list1.add("three")
 
-        list1.returnFilter(0)
-        list1.returnAny(0)
+        list1.returnFilter('o')
+        list1.returnAny('o')
     }
 }
