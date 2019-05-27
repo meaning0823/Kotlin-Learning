@@ -10,7 +10,7 @@ object Example4Inline {
 
     inline fun ArrayList<String>.returnFilter(arg1: Char) = this.filter {
         returnRules(arg1, it)
-    }
+    }.iterator()
 
     inline fun ArrayList<String>.returnAny(arg1: Char) = this.any {
         returnRules(arg1, it)
@@ -22,7 +22,7 @@ object Example4Inline {
         list1.add("two")
         list1.add("three")
 
-        list1.returnFilter('o')
-        list1.returnAny('o')
+        val iterator: Iterator<String>  = list1.returnFilter('o')
+        val any: Boolean                = list1.returnAny('o')
     }
 }
