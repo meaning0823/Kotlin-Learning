@@ -14,7 +14,7 @@ object Example4Inline {
 
     inline fun ArrayList<String>.returnFilter(arg1: Char) = this.filter {
         returnRules(arg1, it)
-    }.iterator()
+    }
 
     inline fun ArrayList<String>.returnAny(arg1: Char) = this.any {
         returnRules(arg1, it)
