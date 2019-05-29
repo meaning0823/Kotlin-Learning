@@ -8,6 +8,10 @@ object Example4Inline {
         }
     }
 
+    inline fun ArrayList<String>.returnFind(arg1: Char) = this.find {
+        returnRules(arg1, it)
+    }
+
     inline fun ArrayList<String>.returnFilter(arg1: Char) = this.filter {
         returnRules(arg1, it)
     }
@@ -22,7 +26,8 @@ object Example4Inline {
         list1.add("two")
         list1.add("three")
 
-        list1.returnFilter('o')
-        list1.returnAny('o')
+        val list: List<String>  = list1.returnFilter('o')
+        val boolean: Boolean    = list1.returnAny('o')
+        val element: String?    = list1.returnFind('o')
     }
 }
